@@ -1,13 +1,84 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+/* Header */
+
+#HeaderTop {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+  align-items: center;
+  margin: 10px 3%;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+#HeaderTop a {
+  text-decoration: none;
+  color: black;
 }
+
+#NavBar {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: center;
+  gap: 50px;
+}
+
+/* Homepage */
+
+#HomepageFlex {
+  display: flex;
+  flex-flow: row wrap;
+  margin: 50px 5%;
+  gap: 40px;
+}
+
+#HomepageText {
+  text-align: left;
+  margin: auto;
+  width: 700px;
+  font-size: 24px;
+}
+
+#takanoshoFootball {
+  width: 600px;
+}
+
+/* Rules & Scoring */
+
+#RulesTopFlex {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-evenly;
+  margin: 50px;
+  gap: 50px;
+}
+
+#RulesText {
+  width: 50%;
+  text-align: center;
+}
+
+#HowItWorks li {
+  width: 180px;
+  text-align: left;
+  margin: 0 auto;
+}
+
+#Scoring li {
+  list-style-position: inside;
+  width: 630px;
+}
+
+#ScoringFacts {
+  width: 50%;
+  text-align: center;
+}
+
+#Kotomitsuki {
+  display: block;
+  width: 400px;
+  margin: 0 auto;
+}
+
+#MoreFacts {
+  margin: 50px 40px;
+  text-align: center;
+}
+
