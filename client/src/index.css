@@ -63,7 +63,8 @@
 
 #Scoring li {
   list-style-position: inside;
-  width: 630px;
+  width: 100%;
+  margin: 0;
 }
 
 #ScoringFacts {
@@ -82,3 +83,162 @@
   text-align: center;
 }
 
+/* for the Login */
+
+#LoginFlex {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+}
+
+#LFFlex {
+  display: flex;
+  justify-content: center;
+  width: 450px;
+  margin: 40px 0;
+}
+
+#LoginForm {
+  border: 1px solid black;
+  padding: 20px 50px;
+}
+
+.LoginLine {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+  align-items: center;
+  width: 300px;
+  margin: 15px auto;
+  font-size: 20px;
+  height: 30px;
+}
+
+.loginLine input {
+  font-size: 18px;
+}
+
+#LoginSubmit {
+  display: block;
+  margin: 40px auto 10px auto;
+  height: 35px;
+  width: 120px;
+  font-size: 20px;
+}
+
+#signup {
+  width: 500px;
+  text-align: center;
+  font-size: 18px;
+}
+
+#signup button {
+  height: 35px;
+  width: 100px;
+  font-size: 18px;
+}
+
+/* for the sign up form */
+
+#SignupFlex {
+  display: flex;
+  flex-flow: row nowrap;
+  border: 1px solid black;
+  width: 450px;
+  justify-content: center;
+  margin: 40px 0;
+  padding: 20px;
+}
+
+.SignupLine {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+  align-items: center;
+  width: 400px;
+  margin: 15px auto;
+  font-size: 20px;
+  height: 30px;
+  text-align: right;
+}
+
+.SignupLine input {
+  font-size: 18px;
+}
+
+#SignupFlex button {
+  display: block;
+  margin: 40px auto 10px auto;
+  height: 35px;
+  width: 120px;
+  font-size: 20px;
+}
+
+/* for the Draft */
+
+#DraftTopFlex {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+  gap: 20px;
+  margin: 40px;
+}
+
+#AllRikishiFlex {
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+#AllRikishiFlex p {
+  width: 150px;
+  margin: 20px auto;
+}
+
+.RLFlex {
+  display: flex;
+  flex-flow: row nowrap;
+}
+
+/* for Results */
+
+.teamsContainer {
+  background-color: antiquewhite;
+  border: 5px solid rgb(196, 200, 110);
+  margin: 40px;
+}
+
+.teamsTop {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-evenly;
+  align-items: center;
+  border-bottom: 3px solid black
+}
+
+.teamsTop h2 {
+  width: 150px;
+}
+
+.teamsTop p {
+  width: 100px;
+}
+
+.oneTeam {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+.oneTeam h2 {
+  width: 150px;
+}
+
+.oneTeam p {
+  width: 100px;
+}

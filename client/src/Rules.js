@@ -9,10 +9,9 @@ function Rules() {
                 <div id="RulesText">
                     <div id="HowItWorks">
                         <h2>How It Works:</h2>
-                        <p>Once you've made an account and logged in, you can select 8 rikishi from the top two divisions for your team.</p>
+                        <p>Once you've made an account and logged in, you can select 7 rikishi from the top two divisions for your team.</p>
                         <p>Pick one rikishi for each of these ranks:</p>
                         <ul>
-                            <li>Sanyaku</li>
                             <li>Sanyaku</li>
                             <li>M1-M4</li>
                             <li>M5-M8</li>
