@@ -12,7 +12,28 @@ import Account from './Account';
 
 function App() {
 
-  const [user, setUser] = useState([])
+  const [user, setUser] = useState(null)
+  // console.log(`user = ${user}`)
+  const [rikishi, setRikishi] = useState([])
+
+  useEffect(() => {
+    // auto-login
+    fetch("/me").then((r) => {
+      if (r.ok) {
+        r.json().then((user) => {
+          setUser(user)
+        });
+      }
+    });
+  }, []);
+
+  useEffect(() => {
+    fetch("/rikishis")
+    .then(r => r.json())
+    .then(r => setRikishi(r))
+  }, [])
+
+  // console.log(`in App ${user}`)
 
   return (
     <div className="App">
@@ -27,11 +48,13 @@ function App() {
           />
         <Route
           path="/login"
-          element={<Login />}
+          element={<Login 
+                      setUser={setUser}
+                  />}
           />
         <Route
           path="/account"
-          element={<Account />}
+          element={<Account user={user} setUser={setUser} rikishi={rikishi}/>}
           />
         <Route
           path="/rules"
@@ -39,7 +62,7 @@ function App() {
           />
         <Route
           path="/draft"
-          element={<Draft />}
+          element={<Draft user={user} setUser={setUser} rikishi={rikishi}/>}
           />
         <Route
           path="/results"

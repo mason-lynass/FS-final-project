@@ -1,0 +1,3 @@
+class Rikishi < ApplicationRecord
+    
+end

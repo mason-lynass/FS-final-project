@@ -1,6 +1,9 @@
 import { useState, useEffect } from "react"
+import { Navigate, useNavigate } from "react-router-dom"
 
-function DraftTeam ({userTeam, setUserTeam}) {
+function DraftTeam({ userTeam, setUserTeam, user, setUser, teams, setTeams }) {
+
+    const navigate = useNavigate()
 
     // function handleTeamFormChange(e) {
     //     const name = e.target.name;
@@ -8,22 +11,28 @@ function DraftTeam ({userTeam, setUserTeam}) {
     //     setUserTeam({...userTeam, [name]: value})
     //   }
 
+    // console.log(user)
+
     function handleTeamFormSubmit(e) {
-    console.log('submitted!')
-    // this fetch is wrong
-    fetch(`http://localhost:4001/teams`, {
-        method: "POST",
-        headers: {"Content-Type": "application/json"},
-        body: JSON.stringify(userTeam)
-    })
-    .then(r => r.json())
-    // then we need to just navigate to the account page!
-    // .then((newTeam) => setTeams([...teams, newTeam]))
+        e.preventDefault()
+        // this fetch is wrong
+        fetch(`/teams`, {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({...userTeam, user_id: user.id})
+        })
+        .then(setUser(user))
+        navigate('/account')
+        console.log('submitted!')
+
+        // .then(r => r.json())
+        // then we need to just navigate to the account page!
+        // .then((newTeam) => setTeams([...teams, newTeam]))
     }
 
-    function handleXButton (clicked) {
+    function handleXButton(clicked) {
         let i = clicked.target.id
-        const newTeam = {...userTeam}
+        const newTeam = { ...userTeam }
         newTeam[i] = ""
         setUserTeam(newTeam)
         // console.log(i)
@@ -34,7 +43,7 @@ function DraftTeam ({userTeam, setUserTeam}) {
         <div id="FSTeam" className="FSTeamContainer">
             <h2>- Build your Fantasy Sumo team -</h2>
             <div id="FSFlex">
-                <div>
+                <div id="FSTeamTable">
                     <p>One sanyaku rikishi:</p>
                     <p>One rikishi M1-M4:</p>
                     <p>One rikishi M5-M8:</p>

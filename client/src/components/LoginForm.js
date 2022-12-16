@@ -13,7 +13,6 @@ function LoginForm ({setUser}) {
     function handleLoginSubmit(e) {
         e.preventDefault()
         setIsLoading(true)
-        // need to do routing for this to work, make a Sessions controller
         fetch("/login", {
             method: "POST",
             headers: {"Content-Type": "application/json"},

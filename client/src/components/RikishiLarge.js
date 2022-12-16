@@ -2,43 +2,54 @@ function RikishiLarge({ clickedRikishi, userTeam, setUserTeam }) {
 
     const rikishi = clickedRikishi
 
+    const totalSansho = (clickedRikishi.shukun_sho + clickedRikishi.kanto_sho + clickedRikishi.gino_sho)
+
+    function calculate_age(dob) {
+        const birthdate = new Date(dob)
+        const diff_ms = Date.now() - birthdate.getTime();
+        const age_dt = new Date(diff_ms)
+
+        return Math.abs(age_dt.getUTCFullYear() - 1970)
+    }
+    
+
     function handleAddToTeam(rikishi) {
-        if (rikishi.rank === "Y" || rikishi.rank === "O" || rikishi.rank === "S" || rikishi.rank === "K") {
+        if (rikishi.current_rank === "Y" || rikishi.current_rank === "O" || rikishi.current_rank === "S" || rikishi.current_rank === "K") {
             if (userTeam.r1 === "") {
                 setUserTeam({ ...userTeam, r1: rikishi.shikona })
-            } else if (userTeam.r1 !== "") {
+            } else if (userTeam.r1 !== "" && userTeam.r1 !== rikishi.shikona) {
                 setUserTeam({ ...userTeam, r6: rikishi.shikona })
             }
         }
-        if (rikishi.rank === "M1" || rikishi.rank === "M2" || rikishi.rank === "M3" || rikishi.rank === "M4") {
+        if (rikishi.current_rank === "1" || rikishi.current_rank === "2" || rikishi.current_rank === "3" || rikishi.current_rank === "4") {
             if (userTeam.r2 === "") {
                 setUserTeam({ ...userTeam, r2: rikishi.shikona })
-            } else if (userTeam.r2 !== "") {
+            } else if (userTeam.r2 !== "" && userTeam.r2 !== rikishi.shikona) {
                 setUserTeam({ ...userTeam, r6: rikishi.shikona })
             }
         }
-        if (rikishi.rank === "M5" || rikishi.rank === "M6" || rikishi.rank === "M7" || rikishi.rank === "M8") {
+        if (rikishi.current_rank === "5" || rikishi.current_rank === "6" || rikishi.current_rank === "7" || rikishi.current_rank === "8") {
             if (userTeam.r3 === "") {
                 setUserTeam({ ...userTeam, r3: rikishi.shikona })
-            } else if (userTeam.r3 !== "") {
+            } else if (userTeam.r3 !== "" && userTeam.r3 !== rikishi.shikona) {
                 setUserTeam({ ...userTeam, r6: rikishi.shikona })
             }
         }
-        if (rikishi.rank === "M9" || rikishi.rank === "M10" || rikishi.rank === "M11" || rikishi.rank === "M12") {
+        if (rikishi.current_rank === "9" || rikishi.current_rank === "10" || rikishi.current_rank === "11" || rikishi.current_rank === "12") {
             if (userTeam.r4 === "") {
                 setUserTeam({ ...userTeam, r4: rikishi.shikona })
-            } else if (userTeam.r4 !== "") {
+            } else if (userTeam.r4 !== "" && userTeam.r4 !== rikishi.shikona) {
                 setUserTeam({ ...userTeam, r6: rikishi.shikona })
             }
         }
-        if (rikishi.rank === "M13" || rikishi.rank === "M14" || rikishi.rank === "M15" || rikishi.rank === "M16" || rikishi.rank === "M17") {
+        if (rikishi.current_rank === "13" || rikishi.current_rank === "14" || rikishi.current_rank === "15" || rikishi.current_rank === "16" || rikishi.current_rank === "17") {
             if (userTeam.r5 === "") {
                 setUserTeam({ ...userTeam, r5: rikishi.shikona })
-            } else if (userTeam.r5 !== "") {
+            } else if (userTeam.r5 !== "" && userTeam.r5 !== rikishi.shikona) {
                 setUserTeam({ ...userTeam, r6: rikishi.shikona })
             }
         }
-        if (rikishi.rank === "J") {
+        if (rikishi.current_rank === "J") {
             setUserTeam({ ...userTeam, r7: rikishi.shikona })
         }
     }
@@ -51,12 +62,11 @@ function RikishiLarge({ clickedRikishi, userTeam, setUserTeam }) {
                 >
                     <div className="card-title">
                         <h1>{rikishi.shikona}</h1>
-                        <img src={rikishi.img} alt={rikishi.shikona}></img>
+                        <img id="RLargeImage" src={rikishi.image_url} alt={rikishi.shikona}></img>
                     </div>
-                    <p>current rank: {rikishi.rank}</p>
-                    <p>highest rank: {rikishi.highestrank}</p>
-                    <p>career Yusho: {rikishi.yusho}</p>
-                    <p>career Kinboshi: {rikishi.kinboshi}</p>
+                    <p>Age: {calculate_age(rikishi.birthdate)} - {rikishi.heya} stable</p>
+                    <p>current rank: {rikishi.current_rank} | highest rank: {rikishi.highest_rank}</p>
+                    <p>career Yusho: {rikishi.yusho} | career special prizes: {totalSansho} | career Kinboshi: {rikishi.kinboshi}</p>
                     <p>fantasy sumo points last basho: {rikishi.fsAki}</p>
                     <button onClick={() => handleAddToTeam(rikishi)}>Add {rikishi.shikona} to your squad</button>
                 </div>
