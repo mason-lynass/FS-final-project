@@ -1,7 +1,7 @@
 import { useState } from "react"
 import { useNavigate } from "react-router-dom"
 
-function SignupForm({ setUser }) {
+function SignupForm({ setUser, clap }) {
 
     const navigate = useNavigate()
     const refreshPage = () => { navigate(0) }
@@ -27,9 +27,13 @@ function SignupForm({ setUser }) {
         }).then(r => {
             setIsLoading(false)
             if (r.ok) {
-                r.json().then(user => setUser(user))
-                console.log("hmmmm")
-                navigate("/")
+                r.json().then((user) => {
+                    setUser(user)
+                    console.log("hmmmm")
+                    clap()
+                    navigate("/")
+                })
+                
             } else {
                 r.json().then(err => setErrors(err.errors))
             }
@@ -93,6 +97,7 @@ function SignupForm({ setUser }) {
     return (
         <div id="SignupFlex">
             <form id="SignupForm" onSubmit={handleSignupSubmit}>
+                <h2 style={{textAlign: "center"}}>Sign Up</h2>
                 <div className="SignupLine">
                     <label>
                         Username:

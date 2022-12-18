@@ -11,6 +11,14 @@ function RikishiLarge({ clickedRikishi, userTeam, setUserTeam }) {
 
         return Math.abs(age_dt.getUTCFullYear() - 1970)
     }
+
+    // if (userTeam.r1 !== "" && userTeam.r6 !== "") {
+    //     const target = document.querySelectorAll("#Y, #O, #S, #K")
+    //     target.forEach(e => e.classList.add("greyed"))
+    // } else if (userTeam.r2 !== "" && userTeam.r6 !== "") {
+    //     const target = document.querySelectorAll("#1, #2, #3, #4")
+    //     target.forEach(console.log("hellooooo"))
+    // }
     
 
     function handleAddToTeam(rikishi) {
@@ -19,6 +27,8 @@ function RikishiLarge({ clickedRikishi, userTeam, setUserTeam }) {
                 setUserTeam({ ...userTeam, r1: rikishi.shikona })
             } else if (userTeam.r1 !== "" && userTeam.r1 !== rikishi.shikona) {
                 setUserTeam({ ...userTeam, r6: rikishi.shikona })
+                const target = document.querySelectorAll(`#Y, #O, #S, #K`)
+                target.forEach(e => e.classList.add("greyed"))
             }
         }
         if (rikishi.current_rank === "1" || rikishi.current_rank === "2" || rikishi.current_rank === "3" || rikishi.current_rank === "4") {
@@ -26,6 +36,8 @@ function RikishiLarge({ clickedRikishi, userTeam, setUserTeam }) {
                 setUserTeam({ ...userTeam, r2: rikishi.shikona })
             } else if (userTeam.r2 !== "" && userTeam.r2 !== rikishi.shikona) {
                 setUserTeam({ ...userTeam, r6: rikishi.shikona })
+                const target = document.querySelectorAll(`#1, #2, #3, #4`)
+                target.forEach(e => e.classList.add("greyed"))
             }
         }
         if (rikishi.current_rank === "5" || rikishi.current_rank === "6" || rikishi.current_rank === "7" || rikishi.current_rank === "8") {
@@ -72,7 +84,7 @@ function RikishiLarge({ clickedRikishi, userTeam, setUserTeam }) {
                 </div>
 
                 :
-                <div>
+                <div id="RLargeTop">
                     <h2>click on a wrestler</h2>
                     <p>their information and stats will show up here</p>
                 </div>

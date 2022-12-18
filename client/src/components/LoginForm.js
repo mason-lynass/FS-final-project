@@ -1,7 +1,7 @@
 import { useState } from "react"
 import { useNavigate } from "react-router-dom"
 
-function LoginForm ({setUser}) {
+function LoginForm ({setUser, clap}) {
     
     const navigate = useNavigate()
 
@@ -21,6 +21,7 @@ function LoginForm ({setUser}) {
             setIsLoading(false)
             if (r.ok) {
                 r.json().then((user) => setUser(user))
+                clap()
                 navigate("/")
             } else {
                 r.json().then(err => setErrors(err.errors))
@@ -32,6 +33,7 @@ function LoginForm ({setUser}) {
     return (
         <div id="LFFlex">
             <form id="LoginForm" onSubmit={handleLoginSubmit}>
+            <h2 style={{textAlign: "center"}}>Log In</h2>
                 <div className="LoginLine">
                     <label>Username:</label>
                     <input 

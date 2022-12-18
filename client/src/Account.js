@@ -1,22 +1,19 @@
 import { useEffect, useState } from "react";
+import LoginForm from "./components/LoginForm";
 
 function Account({ user, setUser, rikishi }) {
 
     const [aUser, setAUser] = useState(user)
 
-    useEffect(() => {
-        fetch("/me")
-        .then(r => r.json())
-        .then(user => setAUser(user))
-    }, [])
+    // useEffect(() => {
+    //     fetch("/me")
+    //         .then(r => r.json())
+    //         .then(user => setAUser(user))
+    // }, [])
 
-    // console.log(user.teams)
+    console.log(user)
 
-    if (user !== null && (user.teams.length === 0)) {
-        fetch("/me")
-        .then(r => r.json())
-        .then(user => console.log(user))
-    }
+    
 
     // console.log(`in Account ${user}`)
 
@@ -27,19 +24,15 @@ function Account({ user, setUser, rikishi }) {
     function currentBashoTeam() {
 
         const currentTeam = user.teams.find(e => e.basho === 2023.1)
-
         const CTRikishiStrings = Object.values(currentTeam).filter((isString))
-    
         const actualTeam = rikishi.filter((r) => CTRikishiStrings.includes(r.shikona))
         console.log(actualTeam)
-
-
 
         return (
             <div>
                 <h3>Here's your team for the January tournament:</h3>
                 <div id="AccountTeam">
-                    {actualTeam.map((obj) => 
+                    {actualTeam.map((obj) =>
                         <div className="AccountOneRikishi" key={obj.id}>
                             <img src={obj.image_url} />
                             <h3 className="AORrank">{obj.current_rank}</h3>
@@ -59,6 +52,13 @@ function Account({ user, setUser, rikishi }) {
     }
 
     function renderCurrentBashoTeam() {
+
+        if (user !== null && (user.teams.length === 0)) {
+            fetch("/me")
+                .then(r => r.json())
+                .then(user => setUser(user))
+        }
+
         if (user.teams.length === 0) {
             return (
                 <p id="NoTeam">You haven't drafted a team yet for the upcoming tournament</p>
@@ -73,7 +73,10 @@ function Account({ user, setUser, rikishi }) {
     function renderAccountPage() {
         if (!user) {
             return (
-                <h1 id="AccountLogin">You need to login to see your account page!</h1>
+                <div>
+                    <h1 id="AccountLogin">You need to login to see your account page!</h1>
+                    <LoginForm id="AccountLoginForm" setUser={setUser}/>
+                </div>
             )
         } else {
             return (

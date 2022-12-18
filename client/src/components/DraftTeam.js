@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react"
 import { Navigate, useNavigate } from "react-router-dom"
 
-function DraftTeam({ userTeam, setUserTeam, user, setUser, teams, setTeams }) {
+function DraftTeam({ userTeam, setUserTeam, user, setUser, teams, setTeams, tachiai }) {
 
     const navigate = useNavigate()
 
@@ -11,7 +11,7 @@ function DraftTeam({ userTeam, setUserTeam, user, setUser, teams, setTeams }) {
     //     setUserTeam({...userTeam, [name]: value})
     //   }
 
-    // console.log(user)
+    console.log(user)
 
     function handleTeamFormSubmit(e) {
         e.preventDefault()
@@ -21,9 +21,13 @@ function DraftTeam({ userTeam, setUserTeam, user, setUser, teams, setTeams }) {
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify({...userTeam, user_id: user.id})
         })
-        .then(setUser(user))
-        navigate('/account')
-        console.log('submitted!')
+        .then((user) => {
+            // setUser(user)
+            tachiai()
+            navigate('/account')
+            console.log('submitted!')
+        })
+        
 
         // .then(r => r.json())
         // then we need to just navigate to the account page!
@@ -41,7 +45,7 @@ function DraftTeam({ userTeam, setUserTeam, user, setUser, teams, setTeams }) {
 
     return (
         <div id="FSTeam" className="FSTeamContainer">
-            <h2>- Build your Fantasy Sumo team -</h2>
+            <h2>Build your Fantasy Sumo team</h2>
             <div id="FSFlex">
                 <div id="FSTeamTable">
                     <p>One sanyaku rikishi:</p>

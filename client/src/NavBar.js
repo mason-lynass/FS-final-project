@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom"
 
-function NavBar ({user, setUser}) {
+function NavBar ({user, setUser, hyoshigi}) {
 
     function handleLogoutClick() {
         if (user) {
@@ -13,23 +13,23 @@ function NavBar ({user, setUser}) {
     }
 
     return (
-        <div>
+        <div id="FullTop">
             <div id="HeaderTop">
                 <Link id="navLogin" to="/login" onClick={handleLogoutClick}>
                     {user === null ? "Login" : "Logout"}
                 </Link>
                 <Link to="/">
-                    <h1>Fantasy Sumo</h1>
+                    <h1 id="SiteTitle">Fantasy Sumo</h1>
                 </Link>
                 <Link id="navAccount" to="/account">
                     Account
                 </Link>
             </div>
             <div id="NavBar">
-                <Link to="/rules">Rules & Scoring</Link>
-                <Link to="/draft">Draft Your Team</Link>
-                <Link to="/results">All Teams / Results</Link>
-                <Link to="/database">Browse the database</Link>
+                <Link to="/rules" onClick={hyoshigi}>Rules & Scoring</Link>
+                <Link to="/draft" onClick={hyoshigi}>Draft Your Team</Link>
+                <Link to="/results" onClick={hyoshigi}>All Teams / Results</Link>
+                <Link to="/database" onClick={hyoshigi}>Browse the database</Link>
             </div>
         </div>
         

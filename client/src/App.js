@@ -1,6 +1,16 @@
 import './index.css';
+import './media.css';
+
 import { useState, useEffect } from "react";
 import { Route, Routes } from "react-router-dom"
+import { useSound } from "use-sound"
+
+import BG1 from "./images/sumo-background-1.jpeg"
+
+import Clap from "./audio/sumo-clap.wav"
+import Hyoshigi from "./audio/sumo-hyoshigi.wav"
+import Hakkeyoi from "./audio/sumo-hakkeyoi.wav"
+
 import NavBar from "./NavBar";
 import Homepage from "./Homepage";
 import Login from './Login';
@@ -10,11 +20,18 @@ import Results from './Results';
 import Database from './Database';
 import Account from './Account';
 
+
+
+
 function App() {
 
   const [user, setUser] = useState(null)
-  // console.log(`user = ${user}`)
   const [rikishi, setRikishi] = useState([])
+
+  const [clap] = useSound(Clap)
+  const [hyoshigi] = useSound(Hyoshigi)
+  const [tachiai] = useSound(Hakkeyoi)
+
 
   useEffect(() => {
     // auto-login
@@ -37,9 +54,11 @@ function App() {
 
   return (
     <div className="App">
+      <img id="BI" src={BG1} />
       <NavBar 
         user={user}
         setUser={setUser}
+        hyoshigi={hyoshigi}
         />
       <Routes>
         <Route
@@ -50,6 +69,7 @@ function App() {
           path="/login"
           element={<Login 
                       setUser={setUser}
+                      clap={clap}
                   />}
           />
         <Route
@@ -62,7 +82,7 @@ function App() {
           />
         <Route
           path="/draft"
-          element={<Draft user={user} setUser={setUser} rikishi={rikishi}/>}
+          element={<Draft user={user} setUser={setUser} rikishi={rikishi} tachiai={tachiai}/>}
           />
         <Route
           path="/results"

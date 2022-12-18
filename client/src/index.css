@@ -1,3 +1,29 @@
+body {
+  margin: 0;
+  font-family: "Nunito Sans";
+}
+
+#HeaderTop #SiteTitle {
+  background-image: linear-gradient(to right, rgba(255, 255, 255, 0), rgb(184, 2, 2), rgb(184, 2, 2), rgb(184, 2, 2), rgba(255, 255, 255, 0));
+  margin: 10px auto;
+  padding: 5px 100px;
+  color: white;
+  text-align: center;
+
+}
+
+#BI {
+  min-height: 100%;
+  min-width: 1024px;
+  width: 100%;
+  height: auto;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  opacity: .5;
+}
+
 /* Header */
 
 #HeaderTop {
@@ -8,9 +34,16 @@
   margin: 10px 3%;
 }
 
-#HeaderTop a {
+#HeaderTop a, #NavBar a {
   text-decoration: none;
   color: black;
+}
+
+#navLogin, #navAccount, #NavBar a {
+  border: 1px solid black;
+  background-color: white;
+  padding: 5px 10px;
+  border-radius: 30px;
 }
 
 #NavBar {
@@ -18,6 +51,11 @@
   flex-flow: row nowrap;
   justify-content: center;
   gap: 50px;
+}
+
+#FullTop {
+  background-image: linear-gradient(180deg, rgba(255, 255, 255, 1), rgba(255, 255, 255, 1), rgba(150, 75, 0, 0));
+  margin-top: -10px;
 }
 
 /* Homepage */
@@ -30,14 +68,19 @@
 }
 
 #HomepageText {
-  text-align: left;
+  text-align: center;
   margin: auto;
-  width: 700px;
-  font-size: 24px;
+  width: 660px;
+  font-size: 22px;
+  background-color: white;
+  padding: 20px;
+  border: 2px solid black;
 }
 
 #takanoshoFootball {
   width: 600px;
+  border: 5px ridge goldenrod;
+  margin: 0 auto;
 }
 
 /* for the Login */
@@ -47,6 +90,7 @@
   flex-flow: row wrap;
   justify-content: center;
   align-items: center;
+  margin: 80px 10%;
   gap: 20px;
 }
 
@@ -54,12 +98,13 @@
   display: flex;
   justify-content: center;
   width: 450px;
-  margin: 40px 0;
+  margin: 0 auto;
 }
 
 #LoginForm {
   border: 1px solid black;
   padding: 20px 50px;
+  background-color: white;
 }
 
 .LoginLine {
@@ -103,10 +148,11 @@
   display: flex;
   flex-flow: row nowrap;
   border: 1px solid black;
-  width: 450px;
+  width: 500px;
   justify-content: center;
-  margin: 40px 0;
+  margin: 0px auto;
   padding: 20px;
+  background-color: white;
 }
 
 .SignupLine {
@@ -114,7 +160,7 @@
   flex-flow: row nowrap;
   justify-content: space-between;
   align-items: center;
-  width: 400px;
+  width: 420px;
   margin: 15px auto;
   font-size: 20px;
   height: 30px;
@@ -138,18 +184,34 @@
 #AccountLogin {
   text-align: center;
   margin: 100px auto;
+  width: 600px;
+  padding: 20px;
+  border: 1px solid black;
+  background-color: white;
+}
+
+#AccountLoginForm {
+  display: block;
+  width: 1000px;
+  margin: 0 auto;
+  color: black;
 }
 
 #AccountPage {
   text-align: center;
+  width: 840px;
+  padding: 20px;
   margin: 50px auto;
+  background-color: white;
+  border: 1px solid black;
 }
 
 #AccountTeam {
-  border: 1px solid black;
+  border: 5px ridge goldenrod;
   width: 800px;
-  margin: 30px auto;
+  margin: 0px auto;
   padding: 20px;
+  background-color: rgb(229, 202, 133);
 }
 
 .AccountOneRikishi {
@@ -158,6 +220,10 @@
   width: 300px;
   justify-content: center;
   margin: 10px auto;
+  background-color: white;
+  padding: 5px 20px;
+  border: 1px solid black;
+  border-radius: 50px;
 }
 
 .AORrank {
@@ -172,15 +238,17 @@
 
 #RulesTopFlex {
   display: flex;
-  flex-flow: row nowrap;
+  flex-flow: row wrap;
   justify-content: space-evenly;
-  margin: 50px;
-  gap: 50px;
+  margin: 40px 20px;
+  gap: 10px;
 }
 
-#RulesText {
-  width: 50%;
+#RulesText, #ScoringFacts {
+  width: 800px;
   text-align: center;
+  background-color: white;
+  border: 1px solid black;
 }
 
 #HowItWorks li {
@@ -189,29 +257,62 @@
   margin: 0 auto;
 }
 
+#HWFlex {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-around;
+  align-items: center;
+  margin: 0 10px;
+}
+
+#ScoringFlex {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-around;
+  align-items: center;
+}
+
 #Scoring li {
   list-style-position: inside;
   width: 100%;
   margin: 0;
 }
 
-#ScoringFacts {
-  width: 50%;
-  text-align: center;
-}
 
 #Kotomitsuki {
   display: block;
   width: 400px;
-  margin: 0 auto;
+  border: 5px ridge gold;
 }
 
 #MoreFacts {
-  margin: 50px 40px;
+  margin: 50px auto;
   text-align: center;
+  background-color: white;
+  width: 800px;
+  padding: 10px 50px;
+  border: 3px ridge black;
+  border-radius: 100px;
 }
 
 /* for the Draft */
+
+#DraftLogin, #DraftAD {
+  background-color: white;
+  text-align: center;
+  margin: 80px auto;
+  padding: 10px;
+  border: 3px solid black;
+}
+
+#DraftLogin {
+  width: 250px;
+}
+
+#DraftAD {
+  width: 200px;
+  height: 120px;
+}
 
 #DraftTopFlex {
   display: flex;
@@ -225,6 +326,7 @@
   border: 1px solid black;
   text-align: center;
   padding: 20px;
+  background-color: white;
 }
 
 #FSFlex {
@@ -235,13 +337,13 @@
 }
 
 #FSTeamTable, #FSRikishi {
-  width: 180px;
+  width: 200px;
   display: block;
   margin: 0 auto;
 }
 
 #FSRikishi p {
-  height: 18.5px;
+  height: 21.5px;
 }
 
 #FSRikishi button {
@@ -255,6 +357,7 @@
   border: 1px solid black;
   text-align: center;
   width: 500px;
+  background-color: white;
 }
 
 #RLargeImage {
@@ -275,7 +378,8 @@
 #Makuuchi, #Juryo {
   display: block;
   width: 100%;
-  margin: 0 20px;
+  margin: 10px 20px;
+  background-color: rgb(229, 202, 133);
 }
 
 .RLFlex {
@@ -287,28 +391,41 @@
 
 .SmallCard h3, .SmallCard p {
   margin: 5px auto;
+}
+
+.SmallCard h3 {
   width: 120px;
 }
 
 .SmallCard {
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+  justify-content: center;
   height: 120px;
   width: 120px;
   border: 1px solid black;
-  text-align: center;
+  border-radius: 120px;
+  background-color: white;
   padding: 5px;
   margin: 10px;
-  border-radius: 120px;
+  
 }
 
 .smallImage {
   width: 40px;
+  margin: 0 auto;
+}
+
+.greyed {
+  background-color: grey;
 }
 
 /* for Results */
 
 .teamsContainer {
   background-color: antiquewhite;
-  border: 5px solid rgb(196, 200, 110);
+  border: 7px ridge goldenrod;
   margin: 40px;
 }
 
