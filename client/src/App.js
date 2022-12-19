@@ -74,7 +74,7 @@ function App() {
           />
         <Route
           path="/account"
-          element={<Account user={user} setUser={setUser} rikishi={rikishi}/>}
+          element={<Account user={user} setUser={setUser} rikishi={rikishi} clap={clap}/>}
           />
         <Route
           path="/rules"

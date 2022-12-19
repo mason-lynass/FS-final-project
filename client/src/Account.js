@@ -1,25 +1,31 @@
 import { useEffect, useState } from "react";
 import LoginForm from "./components/LoginForm";
+import { Navigate, useNavigate } from "react-router-dom";
 
-function Account({ user, setUser, rikishi }) {
+function Account({ user, setUser, rikishi, clap }) {
 
-    const [aUser, setAUser] = useState(user)
-
-    // useEffect(() => {
-    //     fetch("/me")
-    //         .then(r => r.json())
-    //         .then(user => setAUser(user))
-    // }, [])
+    const navigate = useNavigate()
 
     console.log(user)
 
-    
-
-    // console.log(`in Account ${user}`)
-
-    function isString(value) {
-        return typeof value === "string"
+    function handleDeleteTeam() {
+        const toDelete = user.teams.find(e => e.basho === 2023.1).id
+        fetch(`/teams/${toDelete}`, { method: "DELETE" })
+            .then((r) => {
+                if (r.ok) {
+                    fetch("/me").then((r) => {
+                        if (r.ok) {
+                            r.json().then((user) => {
+                                setUser(user)
+                                navigate("/draft")
+                            });
+                        }
+                    })
+                }
+            })
     }
+
+    function isString(value) { return typeof value === "string" }
 
     function currentBashoTeam() {
 
@@ -39,34 +45,22 @@ function Account({ user, setUser, rikishi }) {
                             <h3 className="AORshikona">{obj.shikona}</h3>
                         </div>
                     )}
-                    {/* <p>{actualTeam[0].current_rank} - {actualTeam[0].shikona}</p>
-                    <p>{actualTeam[1].current_rank} - {actualTeam[1].shikona}</p>
-                    <p>{actualTeam[2].current_rank} - {actualTeam[2].shikona}</p>
-                    <p>{actualTeam[3].current_rank} - {actualTeam[3].shikona}</p>
-                    <p>{actualTeam[4].current_rank} - {actualTeam[4].shikona}</p>
-                    <p>{actualTeam[5].current_rank} - {actualTeam[5].shikona}</p>
-                    <p>{actualTeam[6].current_rank} - {actualTeam[6].shikona}</p> */}
+                </div>
+                <div id="Redraft">
+                    <h4>If you need to redraft before the tournament starts, if someone is injured or you've changed your mind: </h4>
+                    <button onClick={handleDeleteTeam}>DELETE TEAM</button>
                 </div>
             </div>
         )
     }
 
     function renderCurrentBashoTeam() {
-
-        if (user !== null && (user.teams.length === 0)) {
-            fetch("/me")
-                .then(r => r.json())
-                .then(user => setUser(user))
-        }
-
         if (user.teams.length === 0) {
             return (
                 <p id="NoTeam">You haven't drafted a team yet for the upcoming tournament</p>
             )
         } else {
-            return (
-                currentBashoTeam()
-            )
+            return (currentBashoTeam())
         }
     }
 
@@ -75,7 +69,7 @@ function Account({ user, setUser, rikishi }) {
             return (
                 <div>
                     <h1 id="AccountLogin">You need to login to see your account page!</h1>
-                    <LoginForm id="AccountLoginForm" setUser={setUser}/>
+                    <LoginForm id="AccountLoginForm" clap={clap} setUser={setUser} />
                 </div>
             )
         } else {

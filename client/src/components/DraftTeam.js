@@ -4,6 +4,7 @@ import { Navigate, useNavigate } from "react-router-dom"
 function DraftTeam({ userTeam, setUserTeam, user, setUser, teams, setTeams, tachiai }) {
 
     const navigate = useNavigate()
+    const [errors, setErrors] = useState("")
 
     // function handleTeamFormChange(e) {
     //     const name = e.target.name;
@@ -11,27 +12,46 @@ function DraftTeam({ userTeam, setUserTeam, user, setUser, teams, setTeams, tach
     //     setUserTeam({...userTeam, [name]: value})
     //   }
 
-    console.log(user)
 
     function handleTeamFormSubmit(e) {
         e.preventDefault()
-        // this fetch is wrong
         fetch(`/teams`, {
             method: "POST",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify({...userTeam, user_id: user.id})
         })
-        .then((user) => {
-            // setUser(user)
-            tachiai()
-            navigate('/account')
-            console.log('submitted!')
+        .then((r) => {
+            if (r.ok) {
+                tachiai()
+                fetch("/me")
+                    .then(r => r.json())
+                    .then(user => {
+                        setUser(user)
+                        navigate('/account')
+                        console.log('submitted!')
+                    })
+            } else {
+                r.json().then(err => {
+                    setErrors(err.errors)
+                    console.log(errors)
+                })
+            }
+            
         })
         
 
         // .then(r => r.json())
         // then we need to just navigate to the account page!
         // .then((newTeam) => setTeams([...teams, newTeam]))
+    }
+
+
+    function errorMessage () {
+        if (errors !== "") {
+            return (
+                <p id="DraftErrorMessage">{errors}</p>
+            )
+        }
     }
 
     function handleXButton(clicked) {
@@ -69,9 +89,11 @@ function DraftTeam({ userTeam, setUserTeam, user, setUser, teams, setTeams, tach
             <div>
                 <form id="FSTeamBottom" onSubmit={handleTeamFormSubmit}>
                     <button type="submit">Submit your team</button>
+                    {errorMessage()}
                     <p id="warning">remember, no edits after you submit!</p>
                 </form>
             </div>
+            
         </div>
     )
 }

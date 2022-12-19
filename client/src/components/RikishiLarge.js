@@ -80,7 +80,7 @@ function RikishiLarge({ clickedRikishi, userTeam, setUserTeam }) {
                     <p>current rank: {rikishi.current_rank} | highest rank: {rikishi.highest_rank}</p>
                     <p>career Yusho: {rikishi.yusho} | career special prizes: {totalSansho} | career Kinboshi: {rikishi.kinboshi}</p>
                     <p>fantasy sumo points last basho: {rikishi.fsAki}</p>
-                    <button onClick={() => handleAddToTeam(rikishi)}>Add {rikishi.shikona} to your squad</button>
+                    <button id="AddRikishiButton" onClick={() => handleAddToTeam(rikishi)}>Add {rikishi.shikona} to your squad</button>
                 </div>
 
                 :

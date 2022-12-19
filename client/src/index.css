@@ -201,16 +201,20 @@ body {
   text-align: center;
   width: 840px;
   padding: 20px;
-  margin: 50px auto;
+  margin: 20px auto;
   background-color: white;
   border: 1px solid black;
+}
+
+#AccountHello {
+  margin: 0px auto;
 }
 
 #AccountTeam {
   border: 5px ridge goldenrod;
   width: 800px;
   margin: 0px auto;
-  padding: 20px;
+  padding: 10px;
   background-color: rgb(229, 202, 133);
 }
 
@@ -232,6 +236,23 @@ body {
 
 .AORshikona {
   width: 100px;
+}
+
+#Redraft {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: center;
+  gap: 40px;
+  align-items: center;
+}
+
+#Redraft h4 {
+  width: 400px;
+}
+
+#Redraft button {
+  height: 40px;
+  font-size: 20px;
 }
 
 /* Rules & Scoring */
@@ -262,7 +283,7 @@ body {
   flex-flow: row nowrap;
   justify-content: space-around;
   align-items: center;
-  margin: 0 10px;
+  margin: -20px 10px;
 }
 
 #ScoringFlex {
@@ -329,6 +350,13 @@ body {
   background-color: white;
 }
 
+#DraftErrorMessage {
+  border: 3px solid red;
+  width: 320px;
+  margin: 20px auto;
+  color: red;
+}
+
 #FSFlex {
   display: grid;
   grid-template-columns: 48% 48%;
@@ -360,8 +388,23 @@ body {
   background-color: white;
 }
 
+#AddRikishiButton {
+  font-size: 20px;
+  margin: 20px auto;
+  padding: 5px 20px;
+}
+
+/* .content {
+  display: flex;
+  flex-flow: column nowrap;
+  height: 100%;
+  justify-content: center;
+  align-items: center;
+} */
+
 #RLargeImage {
   width: 80px;
+  margin: 10px auto;
 }
 
 #AllRikishiFlex {
@@ -372,7 +415,6 @@ body {
   justify-content: center;
   align-items: center;
   text-align: center;
-  
 }
 
 #Makuuchi, #Juryo {
