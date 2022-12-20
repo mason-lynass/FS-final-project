@@ -172,6 +172,7 @@ DEPENDENCIES
   active_model_serializers (~> 0.10.13)
   bcrypt (~> 3.1.7)
   bootsnap
+  date (~> 3.3.3)
   debug
   pg (~> 1.2.3)
   puma (~> 5.0)
