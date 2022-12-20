@@ -13,7 +13,7 @@ gem "pg", "~> 1.2.3"
 gem "puma", "~> 5.0"
 
 # trying to use EB's version of Date
-get "date", "~> 3.3.3"
+gem "date", "~> 3.3.3"
 
 # Build JSON APIs with ease [https://github.com/rails/jbuilder]
 # gem "jbuilder"
