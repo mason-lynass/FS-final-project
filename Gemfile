@@ -7,13 +7,10 @@ ruby "2.7.7"
 gem "rails", "~> 7.0.4"
 
 # Use postgresql as the database for Active Record
-gem "pg", "~> 1.2.3"
+gem "pg", "~> 1.1"
 
 # Use the Puma web server [https://github.com/puma/puma]
-gem "puma", "~> 6.0"
-
-# trying to use EB's version of Date
-# gem "date", "~> 3.0.3"
+gem "puma", "~> 5.0"
 
 # Build JSON APIs with ease [https://github.com/rails/jbuilder]
 # gem "jbuilder"
