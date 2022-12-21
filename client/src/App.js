@@ -32,6 +32,8 @@ function App() {
   const [hyoshigi] = useSound(Hyoshigi)
   const [tachiai] = useSound(Hakkeyoi)
 
+  console.log('something')
+
 
   useEffect(() => {
     // auto-login
