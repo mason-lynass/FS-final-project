@@ -340,7 +340,7 @@ body {
   flex-flow: row nowrap;
   justify-content: center;
   gap: 20px;
-  margin: 40px;
+  margin: 20px;
 }
 
 #FSTeam {
@@ -407,6 +407,32 @@ body {
   margin: 10px auto;
 }
 
+#DraftFilters {
+  display: flex;
+  flex-flow: row nowrap;
+  height: 30px;
+  width: 550px;
+  justify-content: space-between;
+  align-items: center;
+  margin: 0px auto;
+  background-color: white;
+  border: 1px solid black;
+  padding: 5px 20px;
+}
+
+#DraftSearch {
+  display: flex;
+  flex-flow: row nowrap;
+  gap: 10px;
+}
+
+#DFCheckboxes {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-evenly;
+  width: 600px;
+}
+
 #AllRikishiFlex {
   display: flex;
   width: 90%;
@@ -424,6 +450,10 @@ body {
   background-color: rgb(229, 202, 133);
 }
 
+#Makuuchi h2, #Juryo h2 {
+  margin: 10px;
+}
+
 .RLFlex {
   display: flex;
   flex-flow: row nowrap;
@@ -437,6 +467,7 @@ body {
 
 .SmallCard h3 {
   width: 120px;
+  font-size: 16px;
 }
 
 .SmallCard {
