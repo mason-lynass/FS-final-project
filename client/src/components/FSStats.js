@@ -4,7 +4,8 @@ function FSStats({ dbRikishi }) {
 
     function FSRikishi() {
 
-        const fsRikishi = dbRikishi.map((r) => r)
+        // lol
+        const fsRikishi = dbRikishi.map((r) => r) 
         const rFSHiToLo = fsRikishi.sort((a, b) => b.avg_fs_score - a.avg_fs_score)
 
         console.log(rFSHiToLo)
