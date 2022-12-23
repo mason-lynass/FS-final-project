@@ -32,9 +32,6 @@ function App() {
   const [hyoshigi] = useSound(Hyoshigi)
   const [tachiai] = useSound(Hakkeyoi)
 
-  console.log('something')
-
-
   useEffect(() => {
     // auto-login
     fetch("/me").then((r) => {
@@ -44,56 +41,53 @@ function App() {
         });
       }
     });
-  }, []);
-
-  useEffect(() => {
     fetch("/rikishis")
-    .then(r => r.json())
-    .then(r => setRikishi(r))
-  }, [])
+      .then(r => r.json())
+      .then(r => setRikishi(r))
+  }, []);
 
   // console.log(`in App ${user}`)
 
   return (
     <div className="App">
-      <img id="BI" src={BG1} />
-      <NavBar 
+      <img id="BI" src={BG1} alt=""/>
+      <NavBar
         user={user}
         setUser={setUser}
         hyoshigi={hyoshigi}
-        />
+      />
       <Routes>
         <Route
           path="/"
-          element={<Homepage />} 
-          />
+          element={<Homepage />}
+        />
         <Route
           path="/login"
-          element={<Login 
-                      setUser={setUser}
-                      clap={clap}
-                  />}
-          />
+          element={<Login
+            setUser={setUser}
+            clap={clap}
+          />}
+        />
         <Route
           path="/account"
-          element={<Account user={user} setUser={setUser} rikishi={rikishi} clap={clap}/>}
-          />
+          element={<Account user={user} setUser={setUser} rikishi={rikishi} clap={clap} />}
+        />
         <Route
           path="/rules"
           element={<Rules />}
-          />
+        />
         <Route
           path="/draft"
-          element={<Draft user={user} setUser={setUser} rikishi={rikishi} tachiai={tachiai}/>}
-          />
+          element={<Draft user={user} setUser={setUser} rikishi={rikishi} tachiai={tachiai} clap={clap} />}
+        />
         <Route
           path="/results"
-          element={<Results />}
-          />
+          element={<Results rikishi={rikishi}/>}
+        />
         <Route
           path="/database"
-          element={<Database />}
-          />
+          element={<Database rikishi={rikishi}/>}
+        />
       </Routes>
     </div>
   );

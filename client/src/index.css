@@ -221,6 +221,8 @@ body {
 .AccountOneRikishi {
   display: flex;
   flex-flow: row nowrap;
+  justify-content: space-evenly;
+  align-items: center;
   width: 300px;
   justify-content: center;
   margin: 10px auto;
@@ -231,11 +233,15 @@ body {
 }
 
 .AORrank {
-  width: 50px;
+  width: 70px;
 }
 
 .AORshikona {
-  width: 100px;
+  width: 150px;
+}
+
+.AORscore {
+  width: 30px;
 }
 
 #Redraft {
@@ -340,7 +346,7 @@ body {
   flex-flow: row nowrap;
   justify-content: center;
   gap: 20px;
-  margin: 40px;
+  margin: 20px;
 }
 
 #FSTeam {
@@ -394,6 +400,10 @@ body {
   padding: 5px 20px;
 }
 
+.content p {
+  margin: 10px auto;
+}
+
 /* .content {
   display: flex;
   flex-flow: column nowrap;
@@ -405,6 +415,32 @@ body {
 #RLargeImage {
   width: 80px;
   margin: 10px auto;
+}
+
+#DraftFilters {
+  display: flex;
+  flex-flow: row nowrap;
+  height: 30px;
+  width: 550px;
+  justify-content: space-between;
+  align-items: center;
+  margin: 0px auto;
+  background-color: white;
+  border: 1px solid black;
+  padding: 5px 20px;
+}
+
+#DraftSearch {
+  display: flex;
+  flex-flow: row nowrap;
+  gap: 10px;
+}
+
+#DFCheckboxes {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-evenly;
+  width: 600px;
 }
 
 #AllRikishiFlex {
@@ -424,6 +460,10 @@ body {
   background-color: rgb(229, 202, 133);
 }
 
+#Makuuchi h2, #Juryo h2 {
+  margin: 10px;
+}
+
 .RLFlex {
   display: flex;
   flex-flow: row nowrap;
@@ -437,6 +477,7 @@ body {
 
 .SmallCard h3 {
   width: 120px;
+  font-size: 16px;
 }
 
 .SmallCard {
@@ -465,10 +506,10 @@ body {
 
 /* for Results */
 
-.teamsContainer {
+.resultsContainer {
   background-color: antiquewhite;
   border: 7px ridge goldenrod;
-  margin: 40px;
+  margin: 20px 40px;
 }
 
 .teamsTop {
@@ -478,14 +519,23 @@ body {
   align-items: center;
   border-bottom: 3px solid black;
   text-align: center;
+  height: 40px;
+  margin: 0;
 }
 
 .teamsTop h2 {
-  width: 150px;
+  font-size: 20px;
+  width: 120px;
 }
 
 .teamsTop p {
   width: 100px;
+}
+
+#teamsContainer {
+  max-height: 700px;
+  min-height: 100px;
+  overflow: scroll;
 }
 
 .oneTeam {
@@ -494,12 +544,123 @@ body {
   justify-content: space-evenly;
   align-items: center;
   text-align: center;
+  border-bottom: 1px solid black;
 }
 
 .oneTeam h2 {
-  width: 150px;
+  font-size: 20px;
+  width: 120px;
+  overflow: scroll;
 }
 
 .oneTeam p {
   width: 100px;
+  margin: 5px auto;
 }
+
+.total {
+  width: 50px;
+}
+
+/* for the Database */
+
+#DBTop {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+  align-items: center;
+  margin: 10px 40px;
+  height: 60px;
+}
+
+#DBTitle {
+  width: 300px;
+  background-color: antiquewhite;
+  text-align: center;
+  border: 3px solid goldenrod;
+  border-radius: 10px;
+}
+
+#DBTopSpace {
+  width: 120px;
+}
+
+#DBViewState {
+  width: 120px;
+}
+
+#DBContainer {
+  max-width: 1300px;
+  margin: auto;
+}
+
+#DBTable {
+  background-color: rgba(250, 235, 213, 0.85);
+  border: 7px ridge goldenrod;
+  margin: 20px 20px;
+  height: 800px;
+}
+
+#DBAllRikishi {
+  height: 740px;
+  overflow: scroll;
+}
+
+#DBTableColumns, .DBOneRikishi {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+  padding: 0 10px;
+  align-items: center;
+  height: 60px;
+  text-align: center;
+  min-width: 750px;
+}
+
+#DBTableColumns {
+  height: 57px;
+  border-bottom: 3px solid black;
+}
+
+#DBTableColumns p {
+  font-size: 12px;
+  margin: 0;
+}
+
+.DBImage {
+  width: 60px;
+}
+
+.DBCurrent, .DBHighest {
+  width: 40px;
+  text-align: center;
+}
+
+.DBShikona {
+  width: 120px;
+}
+
+.DBHeya {
+  width: 100px;
+}
+
+.DBAge, .DBWeight, .DBHeight {
+  width: 40px;
+}
+
+.DBYusho, .DBKinboshi, .DBSansho {
+  width: 40px;
+}
+
+.DBBasho {
+  width: 50px;
+  text-align: center;
+}
+
+.DBAvg {
+  width: 60px;
+  font-weight: 800;
+}
+
+
+

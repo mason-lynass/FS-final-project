@@ -14,8 +14,11 @@ class CreateRikishis < ActiveRecord::Migration[7.0]
       t.integer :kanto_sho
       t.integer :gino_sho
       t.integer :kinboshi
+      t.integer :FS_20226
+      t.integer :FS_history, array: true
 
       t.timestamps
     end
+    add_index :rikishis, :FS_history
   end
 end
