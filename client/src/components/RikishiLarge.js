@@ -85,9 +85,10 @@ function RikishiLarge({ clickedRikishi, userTeam, setUserTeam }) {
                         <img id="RLargeImage" src={rikishi.image_url} alt={rikishi.shikona}></img>
                     </div>
                     <p>Age: {calculate_age(rikishi.birthdate)} - {rikishi.heya} stable</p>
+                    <p>Height: {rikishi.height} cm | Weight {rikishi.weight} kg</p>
                     <p>current rank: {rikishi.current_rank} | highest rank: {rikishi.highest_rank}</p>
-                    <p>career Yusho: {rikishi.yusho} | career special prizes: {totalSansho} | career Kinboshi: {rikishi.kinboshi}</p>
-                    <p>fantasy sumo points last basho: {rikishi.fsAki}</p>
+                    <p>career stats: Yusho: {rikishi.yusho} | special prizes: {totalSansho} | Kinboshi: {rikishi.kinboshi}</p>
+                    <p>FS points last basho: {rikishi.FS_20226 !== null ? rikishi.FS_20226 : "N/A"}</p>
                     <button id="AddRikishiButton" onClick={() => handleAddToTeam(rikishi)}>Add {rikishi.shikona} to your squad</button>
                 </div>
 

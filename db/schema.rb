@@ -29,8 +29,10 @@ ActiveRecord::Schema[7.0].define(version: 2022_12_14_202715) do
     t.integer "gino_sho"
     t.integer "kinboshi"
     t.integer "FS_20226"
+    t.integer "FS_history", array: true
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["FS_history"], name: "index_rikishis_on_FS_history"
   end
 
   create_table "teams", force: :cascade do |t|

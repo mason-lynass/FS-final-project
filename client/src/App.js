@@ -82,11 +82,11 @@ function App() {
         />
         <Route
           path="/results"
-          element={<Results />}
+          element={<Results rikishi={rikishi}/>}
         />
         <Route
           path="/database"
-          element={<Database />}
+          element={<Database rikishi={rikishi}/>}
         />
       </Routes>
     </div>
