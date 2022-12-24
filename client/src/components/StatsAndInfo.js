@@ -1,4 +1,10 @@
+import SIAllRikishi from "./SIAllRikishi";
+import { useState } from "react";
+
 function StatsAndInfo({ dbRikishi }) {
+
+    const [SIRikishi, setSIRikishi] = useState(dbRikishi)
+    const [sortState, setSortState] = useState("default")
 
     function calculate_age(dob) {
         const birthdate = new Date(dob)
@@ -8,44 +14,123 @@ function StatsAndInfo({ dbRikishi }) {
         return Math.abs(age_dt.getUTCFullYear() - 1970)
     }
 
+
+    function handleSortState (e) {
+        setSortState(e.target.id)
+    }
+
+    function SIDefault () {
+        setSIRikishi([...SIRikishi].sort((a, b) => a.id - b.id))
+    }
+
+    function SIShikona () {
+        setSIRikishi(SIRikishi.sort((a, b) => a.shikona - b.shikona))
+    }
+
+    function SIHighest () {
+        setSIRikishi(SIRikishi.sort((a, b) => a.shikona - b.shikona))
+    }
+
+    function SIHeya () {
+        setSIRikishi(SIRikishi.sort((a, b) => a.shikona - b.shikona))
+    }
+
+    function SIAge () {
+        setSIRikishi(SIRikishi.sort((a, b) => a.shikona - b.shikona))
+    }
+
+    function SIHeight () {
+        setSIRikishi(SIRikishi.sort((a, b) => b.height - a.height))
+    }
+
+    function SIWeight () {
+        setSIRikishi(SIRikishi.sort((a, b) => a.shikona - b.shikona))
+    }
+
+    function SIYusho () {
+        setSIRikishi(SIRikishi.sort((a, b) => a.shikona - b.shikona))
+    }
+
+    function SIKinboshi () {
+        setSIRikishi(SIRikishi.sort((a, b) => a.shikona - b.shikona))
+    }
+
+    function SISS () {
+        setSIRikishi(SIRikishi.sort((a, b) => a.shikona - b.shikona))
+    }
+
+    function SIKS () {
+        setSIRikishi(SIRikishi.sort((a, b) => a.shikona - b.shikona))
+    }
+
+    function SIGS () {
+        setSIRikishi(SIRikishi.sort((a, b) => a.shikona - b.shikona))
+    }
+
+    console.log(SIRikishi[0])
+
+    const defaultSort = [...SIRikishi].sort((a, b) => a.id - b.id)
+    const shikonaSort = [...SIRikishi].sort((a, b) => a.shikona.localeCompare(b.shikona))
+    const highestSort = [...SIRikishi].sort((a, b) => a.id - b.id)
+    const heyaSort = [...SIRikishi].sort((a, b) => a.heya.localeCompare(b.heya))
+    const ageSort = [...SIRikishi].sort((a, b) => calculate_age(b.birthdate) - calculate_age(a.birthdate))
+    const heightSort = [...SIRikishi].sort((a, b) => b.height - a.height)
+    const weightSort = [...SIRikishi].sort((a, b) => b.weight - a.weight)
+
+    // filter, then push to an empty array
+    // filter Y 
+    // filter O 
+    // filter S 
+    // filter K 
+    // filter M 
+    // filter J
+
+    // console.log(ageSort)
+
+
+    function SIRikishiSwitch () {
+        console.log(sortState)
+
+        if (sortState === "default") {
+            return <SIAllRikishi calculate_age={calculate_age} rikishi={defaultSort}/>
+        } else if (sortState === "shikona") {
+            return <SIAllRikishi calculate_age={calculate_age} rikishi={shikonaSort}/>
+        } else if (sortState === "highest") {
+            return <SIAllRikishi calculate_age={calculate_age} rikishi={highestSort}/>
+        } else if (sortState === "heya") {
+            return <SIAllRikishi calculate_age={calculate_age} rikishi={heyaSort}/>
+        } else if (sortState === "age") {
+            return <SIAllRikishi calculate_age={calculate_age} rikishi={ageSort}/>
+        } else if (sortState === "height") {
+            return <SIAllRikishi calculate_age={calculate_age} rikishi={heightSort}/>
+        } else if (sortState === "weight") {
+            return <SIAllRikishi calculate_age={calculate_age} rikishi={weightSort}/>
+        } else if (sortState === "yusho") {
+            return <SIAllRikishi calculate_age={calculate_age} rikishi={SIRikishi}/>
+        } else if (sortState === "kinboshi") {
+            return <SIAllRikishi calculate_age={calculate_age} rikishi={SIRikishi}/>
+        }
+    }
+
     return (
         <div id="DBTable">
             <div id="DBTableColumns">
-                <p className='DBImage'></p>
+                <p className='DBImage' id="default" onClick={handleSortState}>(reset)</p>
                 <p className='DBCurrent'>current rank</p>
-                <p className='DBShikona'>shikona</p>
-                <p className='DBHighest'>highest rank</p>
-                <p className='DBHeya'>heya</p>
-                <p className='DBAge'>age</p>
-                <p className='DBHeight'>Height (in cm)</p>
-                <p className='DBWeight'>weight (in kg)</p>
-                <p className='DBYusho'>Yusho</p>
-                <p className='DBKinboshi'>Kinboshi</p>
-                <p className='DBSansho'>Shukun-sho</p>
-                <p className='DBSansho'>Kanto-sho</p>
-                <p className='DBSansho'>Gino-sho</p>
+                <p className='DBShikona' id="shikona" onClick={handleSortState}>shikona</p>
+                <p className='DBHighest' id="highest" onClick={handleSortState}>highest rank</p>
+                <p className='DBHeya' id="heya" onClick={handleSortState}>heya</p>
+                <p className='DBAge' id="age" onClick={handleSortState}>age</p>
+                <p className='DBHeight' id="height" onClick={handleSortState}>height (in cm)</p>
+                <p className='DBWeight' id="weight" onClick={handleSortState}>weight (in kg)</p>
+                <p className='DBYusho' id="yusho" onClick={handleSortState}>Yusho</p>
+                <p className='DBKinboshi' id="kinboshi" onClick={handleSortState}>Kinboshi</p>
+                <p className='DBSansho' id="ss" onClick={handleSortState}>Shukun-sho</p>
+                <p className='DBSansho' id="ks" onClick={handleSortState}>Kanto-sho</p>
+                <p className='DBSansho' id="gs" onClick={handleSortState}>Gino-sho</p>
             </div>
             <div id="DBAllRikishi">
-                {dbRikishi.map((r) => {
-                    return (
-                        <div key={r.id} className='DBOneRikishi'>
-                            <img className='DBImage' src={r.image_url} />
-                            <p className='DBCurrent'>{r.current_rank}</p>
-                            <p className='DBShikona'>{r.shikona}</p>
-                            <p className='DBHighest'>{r.highest_rank}</p>
-                            <p className='DBHeya'>{r.heya}</p>
-                            {/* get this from the RLarge component */}
-                            <p className='DBAge'>{calculate_age(r.birthdate)}</p>
-                            <p className='DBHeight'>{r.height}</p>
-                            <p className='DBWeight'>{r.weight}</p>
-                            <p className='DBYusho'>{r.yusho}</p>
-                            <p className='DBKinboshi'>{r.kinboshi}</p>
-                            <p className='DBSansho'>{r.shukun_sho}</p>
-                            <p className='DBSansho'>{r.kanto_sho}</p>
-                            <p className='DBSansho'>{r.gino_sho}</p>
-                        </div>
-                    )
-                })}
+                {SIRikishiSwitch()}
             </div>
         </div>
     )

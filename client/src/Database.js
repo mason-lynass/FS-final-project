@@ -7,13 +7,12 @@ function Database({ rikishi }) {
     const [viewState, setViewState] = useState(false)
     const [dbRikishi, setDBRikishi] = useState([])
     const [rikishiLoaded, setRikishiLoaded] = useState(false)
+    const fsRikishi = dbRikishi.map((r) => r)
 
     useEffect(() => {
         setDBRikishi(rikishi)
         setRikishiLoaded(true)
     }, [rikishi])
-
-    console.log(dbRikishi)
 
     function changeViewState() {
         setViewState(!viewState)
@@ -28,10 +27,10 @@ function Database({ rikishi }) {
                     <button id="DBViewState" onClick={changeViewState}>{viewState === false ? "view FS Stats" : "view Rikishi Info"}</button>
 
                 </div>
-                {viewState === false ?
+                {viewState === false && dbRikishi.length > 0 ?
                 <StatsAndInfo dbRikishi={dbRikishi}/>
                  :
-                <FSStats dbRikishi={dbRikishi}/>}
+                <FSStats dbRikishi={fsRikishi}/>}
             </div>
             :
             <h2>loading...</h2>
