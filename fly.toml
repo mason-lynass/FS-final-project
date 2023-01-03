@@ -8,7 +8,7 @@ processes = []
 [build]
   [build.args]
     BUILD_COMMAND = "bin/rails fly:build"
-    SERVER_COMMAND = "bin/rails fly:server"
+    SERVER_COMMAND = "foreman start -f Procfile.fly"
 
 [deploy]
   release_command = "bin/rails fly:release"
