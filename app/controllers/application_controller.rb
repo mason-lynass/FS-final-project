@@ -4,6 +4,10 @@ class ApplicationController < ActionController::API
   rescue_from ActiveRecord::RecordInvalid, with: :render_unprocessable_entity_response
   rescue_from ActiveRecord::RecordNotFound, with: :render_not_found
 
+  # def fallback_index_html
+  #   render file: 'public/index.html'
+  # end
+
   private
 
   def render_unprocessable_entity_response(exception)

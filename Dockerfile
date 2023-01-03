@@ -71,7 +71,7 @@ RUN --mount=type=cache,id=dev-apt-cache,sharing=locked,target=/var/cache/apt \
 FROM build_deps as gems
 
 COPY Gemfile* ./
-RUN bundle install && rm -rf vendor/bundle/ruby/*/cache
+RUN bundle install && gem install foreman && rm -rf vendor/bundle/ruby/*/cache
 
 #######################################################################
 
@@ -130,6 +130,7 @@ RUN ${BUILD_COMMAND}
 
 # Default server start instructions.  Generally Overridden by fly.toml.
 ENV PORT 8080
-ARG SERVER_COMMAND="bin/rails fly:server"
+ENV RAILS_SERVE_STATIC_FILES="true"
+ARG SERVER_COMMAND="foreman start -f Procfile.fly"
 ENV SERVER_COMMAND ${SERVER_COMMAND}
 CMD ${SERVER_COMMAND}
