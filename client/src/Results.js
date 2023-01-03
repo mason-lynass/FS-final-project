@@ -54,14 +54,14 @@ function Results({ rikishi }) {
 
         console.log(allTeamsAsObjects)
 
-        const teamsHiToLo = allTeamsAsObjects.sort((a, b) => b.scoreSum - a.scoreSum)
+        // const teamsHiToLo = allTeamsAsObjects.sort((a, b) => b.scoreSum - a.scoreSum)
 
-        function somethingElse() {
-            return (
-                <h2>hi</h2>
-                // <OneTeam team={teamWTotal} key={teamWTotal.id} rikishi={rikishi} />
-            )
-        }
+        // function somethingElse() {
+        //     return (
+        //         <h2>hi</h2>
+        //         // <OneTeam team={teamWTotal} key={teamWTotal.id} rikishi={rikishi} />
+        //     )
+        // }
 
         return (
             (teamsLoaded === false) ?
@@ -95,9 +95,9 @@ function Results({ rikishi }) {
     }
 
 
-    function something() {
-        const teamsByScore = teams.sort(function (a, b) { return b.id - a.id })
-    }
+    // function something() {
+    //     const teamsByScore = teams.sort(function (a, b) { return b.id - a.id })
+    // }
 
 
 

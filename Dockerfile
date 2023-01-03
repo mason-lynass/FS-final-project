@@ -45,7 +45,10 @@ RUN mkdir -p tmp/pids
 RUN curl https://get.volta.sh | bash
 ENV VOLTA_HOME /root/.volta
 ENV PATH $VOLTA_HOME/bin:/usr/local/bin:$PATH
-RUN volta install node@${NODE_VERSION} yarn@${YARN_VERSION} && \
+RUN curl -sL https://deb.nodesource.com/setup_current.x | bash - &&\
+    apt-get install --yes --no-install-recommends nodejs && \
+    npm install -g yarn && \
+    npm install --save react-scripts && \
     gem update --system --no-document && \
     gem install -N bundler -v ${BUNDLER_VERSION}
 

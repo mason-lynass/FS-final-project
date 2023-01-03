@@ -82,16 +82,17 @@ function Draft({ user, setUser, rikishi, tachiai, clap }) {
         setClickedRikishi(r)
     }
 
-    function handleLoginClick() {
-        navigate("/login")
-    }
+    // function handleLoginClick() {
+    //     navigate("/login")
+    // }
 
     function goToTeam() {
         tachiai()
         navigate("/account")
     }
 
-    const MakuuchiRikishi = MRikishi.filter(rikishi => rikishi.current_rank !== "J")
+    // this is where you filter out rikishi if anyone is injured or absent before the tournament
+    const MakuuchiRikishi = MRikishi.filter(rikishi => rikishi.current_rank !== "J" && rikishi.shikona !== "Ichinojo")
     const JuryoRikishi = draftRikishi.filter(rikishi => rikishi.current_rank === "J")
 
     function renderAlreadyDrafted() {

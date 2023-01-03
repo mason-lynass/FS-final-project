@@ -1,5 +1,6 @@
-import { useState, useEffect } from "react"
-import { Navigate, useNavigate } from "react-router-dom"
+import { useState} from "react"
+// import { useEffect } from "react"
+import { useNavigate } from "react-router-dom"
 
 function DraftTeam({ userTeam, setUserTeam, user, setUser, teams, setTeams, tachiai }) {
 

@@ -1,6 +1,6 @@
-import { useEffect, useState } from "react";
+// import { useEffect, useState } from "react";
 import LoginForm from "./components/LoginForm";
-import { Navigate, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 function Account({ user, setUser, rikishi, clap }) {
 
@@ -40,7 +40,7 @@ function Account({ user, setUser, rikishi, clap }) {
                 <div id="AccountTeam">
                     {actualTeam.map((obj) =>
                         <div className="AccountOneRikishi" key={obj.id}>
-                            <img src={obj.image_url} />
+                            <img src={obj.image_url} alt=""/>
                             <h3 className="AORrank">{obj.current_rank}</h3>
                             <h3 className="AORshikona">{obj.shikona}</h3>
                             <h3 className="AORscore">{obj.FS_20226 !== null ? obj.FS_20226 : "0"}</h3>
