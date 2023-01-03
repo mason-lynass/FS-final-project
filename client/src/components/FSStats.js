@@ -5,7 +5,7 @@ function FSStats({ dbRikishi }) {
 
     const [fsRikishi, setFSRikishi] = useState(dbRikishi)
     const [viewState, setViewState] = useState('default')
-    const [loaded, setLoaded] = useState(true)
+    // const [loaded, setLoaded] = useState(true)
 
     function rFSByBasho(e) {
         const x = e.target.id
@@ -53,24 +53,24 @@ function FSStats({ dbRikishi }) {
         // console.log(columns)
     }
 
-    function FSRikishi() {
+    // function FSRikishi() {
 
-        return (
-            fsRikishi.map((r) => {
-                return (
-                    <div key={r.id} className='DBOneRikishi'>
-                        <img className='DBImage' src={r.image_url} />
-                        <p className='DBCurrent'>{r.highest_rank}</p>
-                        <p className='DBShikona'>{r.shikona}</p>
-                        <p className="DBAvg">{r.avg_fs_score}</p>
-                        {r.FS_history.map((basho) => {
-                            return (<p className="DBBasho">{basho}</p>)
-                        })}
-                    </div>
-                )
-            })
-        )
-    }
+    //     return (
+    //         fsRikishi.map((r) => {
+    //             return (
+    //                 <div key={r.id} className='DBOneRikishi'>
+    //                     <img className='DBImage' src={r.image_url} alt=""/>
+    //                     <p className='DBCurrent'>{r.highest_rank}</p>
+    //                     <p className='DBShikona'>{r.shikona}</p>
+    //                     <p className="DBAvg">{r.avg_fs_score}</p>
+    //                     {r.FS_history.map((basho) => {
+    //                         return (<p className="DBBasho">{basho}</p>)
+    //                     })}
+    //                 </div>
+    //             )
+    //         })
+    //     )
+    // }
 
     function FSRikishiSwitch () {
         if (viewState === 'default') {

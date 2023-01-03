@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom"
 function SignupForm({ setUser, clap }) {
 
     const navigate = useNavigate()
-    const refreshPage = () => { navigate(0) }
+    // const refreshPage = () => { navigate(0) }
 
     const [username, setUsername] = useState("")
     const [password, setPassword] = useState("")
